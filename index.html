@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Sprint2!</title>
+    <link rel="icon" href="img/icon.png">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body onload="init()" class="flex flex-col">
+
+    <!-- Header and Navigation -->
+    <header class="flex">
+        <ul class="nav-bar">
+            <li class="li-gallery" onclick="checkPages('gallery')">Gallery🎞</li>
+            <span class="divider"></span>
+            <li class="li-edit" onclick="checkPages('edit')">Edit🖊</li>
+        </ul>
+    </header>
+
+    <!----------------------- Main Gallery --------------------->
+    <main class="main-gallery flex space-even">
+
+        <div class="aside keywords-container flex space-even wrap">
+            <div class="keyword showen-keyword1" onclick="searchImgByPressOnKey(this)">Dog</div>
+            <div class="keyword showen-keyword2" onclick="searchImgByPressOnKey(this)">Happy</div>
+            <div class="keyword showen-keyword3" onclick="searchImgByPressOnKey(this)">Eyes</div>
+            <div class="keyword showen-keyword4" onclick="searchImgByPressOnKey(this)">World!</div>
+            <div class="keyword showen-keyword5" onclick="searchImgByPressOnKey(this)">Sushi</div>
+        </div>
+
+        <div class="gallery-content">
+
+
+            <div class="gallery-inputs flex space-between wrap">
+                <div class="search-container flex flex-col">
+                    <input type="text" id="search" onkeyup="searchImgByWord(this.value)" placeholder="🔍Search for picture.." list="keywords" name="keyword">
+                    <datalist class="keywords-searchbox" id="keywords">
+                    </datalist>
+                </div>
+
+                <input class="upload" type="file" name="image" onchange="onFileInputChange(event)" />
+            </div>
+
+            <!-- Photos galery -->
+            <section class="photo-gallery">
+            </section>
+
+            <div class="gallery-pages flex space-around">
+                <button class="btn-page" onclick="onPrevPage()">🡄 Prev page</button>
+                <button class="btn-page" onclick="onNextPage()">Next page 🡆</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!----------------------- Main Edit ---------------------------->
+    <main class="main-edit">
+        <!-- Inputs -->
+        <div class="edit-conainer">
+
+            <!-- Canvas -->
+            <section>
+                <canvas height="300" width="300" id="edit-canvas"></canvas>
+            </section>
+
+            <section class="input-bar flex space-even wrap">
+                <div class="new-lines"></div>
+
+                <div class="features">
+                    <button class="add-line" onclick="onRenderNewLine()">New line 💫</button>
+
+                    <button class="clear-all" onclick="clearCanvas();clearText()">Clear all 💥</button>
+
+                    <a href="#" onclick="downloadCanvas(this)" download="meme">Download 📥</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="">
+        <div>
+            <h3>Create your meme</h3>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="lib/jquery/jquery.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="js/util.js"></script>
+    <script src="js/main-service.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
